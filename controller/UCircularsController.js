@@ -1,4 +1,4 @@
-const circularModel = require("../model/circular");
+const circularModel = require("../model/Circular");
 
 
 // add circular
