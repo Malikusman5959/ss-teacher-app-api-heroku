@@ -27,7 +27,7 @@ exports.getTodaysLeaveApplications = async function (req, res) {
     var classs = query.classs;
 
     var regex = new RegExp(classs);  
-    var leaveApplication = await leaveApplicationModel.find({date : date ,RegNo : {$regex : regex}}).populate('studentId')
+    var leaveApplication = await leaveApplicationModel.find({date : {$gte: date} ,RegNo : {$regex : regex}}).populate('studentId')
 
     if (leaveApplication.length == 0)
     {
