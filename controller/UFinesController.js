@@ -28,7 +28,7 @@ exports.getPastWeekfines = async function (req, res) {
     var classs = query.classs;
 
     var regex = new RegExp(classs);  
-    var fine = await fineModel.find({date :  {$gte: date} , RegNo : {$regex : regex}}).populate('studentId')
+    var fine = await fineModel.find({date :  {$gte: date} , RegNo : {$regex : regex}}).populate('studentId').populate('violations')
 
     if (fine.length == 0)
     {
